@@ -1,6 +1,9 @@
 import * as React from "react";
 import { Routes, Route, Link } from 'react-router-dom';
 import './style.css'; 
+import CustomForm from "./components/CustomForm";
+import AnimalDetailPage from "./containers/AnimalDetailPage";
+import AnimalListPage from "./containers/AnimalListPage";
 
 function App() {
   return (
@@ -9,6 +12,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route path="/form" element={<CustomForm />} />
+        <Route path="/animals/:animalId" element={<AnimalDetailPage />} />
+        <Route path="/animals" element={<AnimalListPage />} />
       </Routes>
     </div>
   );
@@ -27,6 +33,7 @@ function Home() {
       </main>
       <nav>
         <Link to="/about">About</Link>
+        <Link style={{ marginLeft: 2 }} to="/form">Form</Link>
       </nav>
     </>
   );
@@ -41,6 +48,7 @@ function About() {
       </main>
       <nav>
         <Link to="/">Home</Link>
+        <Link style={{ marginLeft: 2 }} to="/form">Form</Link>
       </nav>
     </>
   )

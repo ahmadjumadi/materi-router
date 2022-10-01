@@ -13,8 +13,11 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/form" element={<CustomForm />} />
-        <Route path="/animals/:animalId" element={<AnimalDetailPage />} />
-        <Route path="/animals" element={<AnimalListPage />} />
+        <Route path="/animal/:animalId" element={<AnimalDetailPage />} />
+        <Route path="/animals" element={<AnimalListPage />} >
+          <Route path=":animalId" element={<AnimalDetailPage />} />
+        </Route>
+        <Route path="*" style={{ padding: "1rem" }} element={<main><h3>404 - Not Found</h3></main>} />
       </Routes>
     </div>
   );

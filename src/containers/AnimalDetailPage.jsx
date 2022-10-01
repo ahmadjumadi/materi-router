@@ -13,7 +13,7 @@ function AnimalDetailPage() {
       const chosenAnimal = getAnimalId(params.animalId);
       setAnimal(chosenAnimal);
     },
-    []
+    [params.animalId]
   );
 
   return (

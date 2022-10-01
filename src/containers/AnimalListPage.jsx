@@ -1,5 +1,5 @@
 import React, { useEffect, useState} from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { Link, Outlet, useSearchParams } from 'react-router-dom';
 import { getAnimals } from '../data/animal.js';
 
 function AnimalListPage() {
@@ -32,10 +32,16 @@ function AnimalListPage() {
         <ul>
           {animals.map((animal) => (
             <li key={animal.animalId}>
+              <Link to={`/animals/${animal.animalId}`}>
               {animal.animalId} - {animal.name}
+              </Link>
             </li>
           ))}
         </ul>
+      </div>
+      
+      <div>
+        <Outlet />
       </div>
     </>
   );
